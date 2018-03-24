@@ -74,7 +74,7 @@ class RuuviTagSensor(object):
 
         datas = dict()
 
-        for new_data in RuuviTagSensor._get_ruuvitag_datas(bt_device):
+        for new_data in RuuviTagSensor._get_ruuvitag_datas(bt_device=bt_device):
             if new_data[0] in datas:
                 continue
             datas[new_data[0]] = new_data[1]
@@ -122,7 +122,7 @@ class RuuviTagSensor(object):
         log.info('Get latest data for sensors. Stop with Ctrl+C.')
         log.info('MACs: %s', macs)
 
-        for new_data in RuuviTagSensor._get_ruuvitag_datas(macs, None, run_flag, bt_device):
+        for new_data in RuuviTagSensor._get_ruuvitag_datas(macs, None, run_flag, bt_device=bt_device):
             callback(new_data)
 
     @staticmethod
